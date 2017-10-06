@@ -14,6 +14,8 @@ const authors = [
   { id: 11, firstName: '小', lastName: '米' },
   { id: 12, firstName: '熊', lastName: '猫' },
   { id: 13, firstName: '芝', lastName: '士' },
+  { id: 14, firstName: '白', lastName: '陀' },
+  { id: 15, firstName: '千', lastName: '寻' },
 ];
 
 const posts = [
@@ -29,7 +31,8 @@ const posts = [
   { id: 10, authorId: 11, title: '小米是最帅的', agree: 1 },
   { id: 11, authorId: 12, title: '熊猫是最帅的', agree: 1 },
   { id: 12, authorId: 13, title: '芝士是最帅的', agree: 1 },
-  { id: 13, authorId: 8, title: '灿灿是最帅的', agree: 1 },
+  { id: 13, authorId: 14, title: '白陀是最帅的', agree: 1 },
+  { id: 15, authorId: 15, title: '千寻是最帅的', agree: 1 },
 ];
 
 const resolveFunctions = {
