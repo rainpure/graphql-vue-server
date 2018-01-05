@@ -1,0 +1,21 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "no-mixed-spaces-and-tabs": "error",
+        "camelcase": 2,
+        "eqeqeq": "warn",
+        "curly": "error",
+        "no-undef": "error",
+        "no-unused-vars": "warn",
+        "max-params": "warn"
+    }
+}
