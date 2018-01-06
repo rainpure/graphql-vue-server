@@ -68,6 +68,11 @@ const postsList = [{
     authorId: 15,
     title: '千寻是最帅的',
     agree: 1,
+}, {
+    id: 16,
+    authorId: 15,
+    title: '千寻是最帅的2',
+    agree: 1,
 }
 ];
 
