@@ -1,8 +1,12 @@
-import authorsList from '../mock/authorsList'
 import mysql from 'mysql';
 
+// 无数据库环境直接用mock的数据
+// import authorsList from '../mock/authorsList'
 // import postsList from '../mock/postsList'
+
+// 数据库环境
 let postsList = [];
+let authorsList = [];
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -12,6 +16,16 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
+// 查询author
+const queryAuthor = () => {
+    let querySql = 'SELECT * FROM `authors` LIMIT 0,1000';
+    connection.query(querySql, function (error, results, fields) {
+        if (error) {
+            throw error;
+        }
+        authorsList = results;
+    });
+}
 
 // 查询post
 const queryPost = () => {
@@ -36,6 +50,7 @@ const editPost = (data) => {
 
 const init = () => {
     queryPost();
+    queryAuthor();
 }
 init();
 
