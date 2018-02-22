@@ -27,6 +27,8 @@ const schema = `
         author: Author
         # 文章所得投票数
         agree: Int
+        # 摘要
+        digest: String
     }
 
     # 查询 Query
