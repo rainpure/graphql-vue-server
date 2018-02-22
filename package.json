@@ -33,7 +33,8 @@
     "graphql-server-express": "^0.4.2",
     "graphql-subscriptions": "^0.2.0",
     "graphql-tools": "^0.8.0",
-    "subscriptions-transport-ws": "^0.3.1"
+    "subscriptions-transport-ws": "^0.3.1",
+    "mysql": "^2.15.0"
   },
   "devDependencies": {
     "babel-cli": "6.16.0",

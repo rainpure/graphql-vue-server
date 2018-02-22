@@ -1,5 +1,43 @@
 import authorsList from '../mock/authorsList'
-import postsList from '../mock/postsList'
+import mysql from 'mysql';
+
+// import postsList from '../mock/postsList'
+let postsList = [];
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'user',
+    password: '123456',
+    database: 'graphql'
+});
+connection.connect();
+
+
+// 查询post
+const queryPost = () => {
+    let querySql = 'SELECT * FROM `posts` LIMIT 0,1000';
+    connection.query(querySql, function (error, results, fields) {
+        if (error) {
+            throw error;
+        }
+        postsList = results;
+    });
+}
+
+// 修改post
+const editPost = (data) => {
+    let querySql = `UPDATE posts SET agree = ? WHERE id = ?`;
+    connection.query(querySql, data, (error, results, fields) => {
+        if (error) {
+            return console.error(error.message);
+        }
+    });
+}
+
+const init = () => {
+    queryPost();
+}
+init();
 
 // resolveFunctions「解析函数」说明这些数据类型中的每个字段，它们对应的数据都要怎么获取
 const resolveFunctions = {
@@ -17,7 +55,7 @@ const resolveFunctions = {
     Mutation: {
         upvotePost: (query, variables) => {
             const post = postsList.find(item => {
-                if(item.id === variables.postId){
+                if (item.id === variables.postId) {
                     return item;
                 }
             });
@@ -25,7 +63,8 @@ const resolveFunctions = {
                 throw new Error(`Couldn't find post with id ${variables.postId}`);
             }
             post.agree += 1;
-            return post;
+            let data = [post.agree, variables.postId];
+            editPost(data);
         },
     },
     Author: {
