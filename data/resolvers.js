@@ -27,6 +27,15 @@ const queryAuthor = () => {
     });
 }
 
+const addAuthorSQL = (data) => {
+    let querySql = 'INSERT INTO authors (firstName) VALUES(?)';
+    connection.query(querySql, data, function (error, result) {
+        if (error) {
+            return console.error(error.message);
+        }
+    });
+}
+
 // 查询post
 const queryPost = () => {
     let querySql = 'SELECT * FROM `posts` LIMIT 0,1000';
@@ -35,6 +44,16 @@ const queryPost = () => {
             throw error;
         }
         postsList = results;
+    });
+}
+
+const addPostSQL = (data) => {
+    let querySql = 'INSERT INTO posts (title, digest, author) VALUES(?, ?, ?)';
+    connection.query(querySql, data, function (error, result) {
+        if (error) {
+            return console.error(error.message);
+        }
+        init();
     });
 }
 
@@ -81,12 +100,20 @@ const resolveFunctions = {
             let data = [post.agree, variables.postId];
             editPost(data);
         },
+        addPost: (query, variables) => {
+            let data = [variables.title, variables.digest, variables.author];
+            if(variables.author && authorsList.indexOf(variables.author) === -1) {
+                let authorData = [variables.author];
+                addAuthorSQL(authorData);
+            }
+            addPostSQL(data);
+        }
     },
     Author: {
         posts: (author) => { 
             const post = [];
             postsList.find(item => {
-                if(item.authorId === author.id){
+                if(item.authorId === author.id || author.firstName === item.author){
                     post.push(item);
                 }
             });
@@ -96,7 +123,7 @@ const resolveFunctions = {
     Post: {
         author: (post) => { 
             return authorsList.find(item => {
-                if(item.id === post.authorId){
+                if(item.id === post.authorId || item.firstName === post.author){
                     return item;
                 }
             });

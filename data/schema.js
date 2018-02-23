@@ -45,6 +45,13 @@ const schema = `
         upvotePost (
             postId: Int!
         ): Post
+
+        # 插入一篇文章
+        addPost(
+            title: String!
+            digest: String
+            author: String
+        ):[Post]
     }
 `;
 
