@@ -11,8 +11,6 @@ const schema = `
         id: Int! 
         # 作者firstName
         firstName: String
-        # 作者lastName
-        lastName: String
         # 作者名下的文章
         posts: [Post]
     }

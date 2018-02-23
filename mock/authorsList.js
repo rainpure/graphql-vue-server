@@ -1,62 +1,47 @@
 const authorsList = [{
     id: 1,
     firstName: '枫',
-    lastName: '叶',
 }, {
     id: 2,
     firstName: '不',
-    lastName: '二',
 }, {
     id: 3,
     firstName: '菜',
-    lastName: '瓜',
 }, {
     id: 4,
     firstName: '城',
-    lastName: '管',
 }, {
     id: 5,
     firstName: '东',
-    lastName: '邪',
 }, {
     id: 6,
     firstName: '曼',
-    lastName: '巴',
 }, {
     id: 7,
     firstName: '绿',
-    lastName: '箭',
 }, {
     id: 8,
     firstName: '灿',
-    lastName: '灿',
 }, {
     id: 9,
     firstName: '糖',
-    lastName: '饼',
 }, {
     id: 10,
     firstName: '天',
-    lastName: '吾',
 }, {
     id: 11,
     firstName: '小',
-    lastName: '米',
 }, {
     id: 12,
     firstName: '熊',
-    lastName: '猫',
 }, {
     id: 13,
     firstName: '芝',
-    lastName: '士',
 }, {
     id: 14,
     firstName: '白',
-    lastName: '陀',
 }, {
     id: 15,
     firstName: '千',
-    lastName: '寻',
 }];
 export default authorsList;
