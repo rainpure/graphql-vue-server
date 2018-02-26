@@ -27,6 +27,8 @@ const schema = `
         agree: Int
         # 摘要
         digest: String
+        # 背景图
+        img: String
     }
 
     # 查询 Query
