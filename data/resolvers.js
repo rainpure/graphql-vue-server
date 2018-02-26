@@ -99,6 +99,7 @@ const resolveFunctions = {
             post.agree += 1;
             let data = [post.agree, variables.postId];
             editPost(data);
+            return post;
         },
         addPost: (query, variables) => {
             let data = [variables.title, variables.digest, variables.author];
