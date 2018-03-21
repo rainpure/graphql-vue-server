@@ -17,7 +17,18 @@ npm install
 ## Starting the server
 
 ```
-npm start
+npm start (本地)
+nohup npm run start & (服务器)
 ```
 
 The server will run on port 8080. You can change this by editing `server.js`.
+
+
+## Datebase
+
+```
+mysql -u root mysql
+CREATE DATABASE graphql;
+```
+
+然后导入或执行graphql_2018-03-21.sql里的内容
