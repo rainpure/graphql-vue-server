@@ -10,7 +10,7 @@ let authorsList = [];
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'user',
+    user: 'root',
     password: '123456',
     database: 'graphql'
 });
